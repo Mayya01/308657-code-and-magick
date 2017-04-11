@@ -1,6 +1,7 @@
 'use strict';
 
-var randomData = {
+
+/* var randomData = {
   userName: ['Иван', 'Хуан', 'Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', ' Люпита', 'Вашингтон'],
   userSurname: ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'],
   usercoatColor: ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'],
@@ -32,9 +33,12 @@ function getArray() {
   for (var i = 0; i < 5; i++) {
     var object = getRandomWizard();
     WIZARD_ARRAY[i] = object;
+
   }
 }
-getArray();
+getArray();*/
+
+var WIZARD_ARRAY = window.renderWizardList;
 
 
 var userDialog = document.querySelector('.setup');
@@ -56,15 +60,15 @@ var getWizard = function (wizard) {
 
   return clonedWizardElement;
 };
+
 var fragment = document.createDocumentFragment();
 for (var i = 0; i < WIZARD_ARRAY.length; i++) {
   fragment.appendChild(getWizard(WIZARD_ARRAY[i]));
 }
 similarListElement.appendChild(fragment);
-
 document.querySelector('.setup-similar').classList.remove('hidden');
 
-
+/*
 var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = setup.querySelector('.setup-close');
@@ -151,6 +155,7 @@ setupClose.addEventListener('click', function () {
   closeSetup();
 });
 
+*/
 
 // Проверка имени пользователя
 var checkUserName = document.querySelector('.setup-user-name');
@@ -158,9 +163,8 @@ checkUserName.required = true;
 checkUserName.maxlength = 50;
 checkUserName.minlength = 2;
 
-
 // Обработчик событий изменений цвета мантии
-var changeColorCoatHandler = function () {
+/* var changeColorCoatHandler = function () {
   document.querySelector('.wizard-coat').style.fill = randomArrItem(['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)']);
 };
 // Обработчик событий изменений цвета глаз
@@ -177,6 +181,4 @@ document.querySelector('.wizard-coat').addEventListener('click', changeColorCoat
 
 document.querySelector('.wizard-eyes').addEventListener('click', changeEyesColorHandler);
 
-document.querySelector('.setup-fireball-wrap').addEventListener('click', changeFireballColorHandler);
-
-
+document.querySelector('.setup-fireball-wrap').addEventListener('click', changeFireballColorHandler);*/
