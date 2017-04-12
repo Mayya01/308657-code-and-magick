@@ -15,6 +15,8 @@ window.allHandlers = (function () {
   var openSetup = function () {
     State.setupIsOpen = true;
     setup.classList.remove('hidden');
+    setup.style.top = '100px';
+    setup.style.left = '50%';
   };
   var closeSetup = function (save) {
     if (save && !document.querySelector('.setup-user-name').validity.valid) {

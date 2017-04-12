@@ -1,8 +1,6 @@
 'use strict';
 
 
-
-
 var WIZARD_ARRAY = window.renderWizardList;
 
 
@@ -39,3 +37,4 @@ var checkUserName = document.querySelector('.setup-user-name');
 checkUserName.required = true;
 checkUserName.maxlength = 50;
 checkUserName.minlength = 2;
+
