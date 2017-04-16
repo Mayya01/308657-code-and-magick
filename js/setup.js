@@ -85,3 +85,38 @@
 
 
 })();
+
+window.fillColor = (function () {
+  // Изменение цвета мантии
+  var wizardColorCoat = document.querySelector('.wizard-coat');
+  var wizardCoatColorArray = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+
+  var colorizeWizardCoat = function (color) {
+    wizardColorCoat.style.fill = color;
+  };
+
+  window.colorizeElement(wizardColorCoat, wizardCoatColorArray, colorizeWizardCoat);
+
+// Изменение цвета глаз
+  var wizardEyesColor = document.querySelector('.wizard-eyes');
+  var wizardEyesColorArray = ['black', 'red', 'blue', 'yellow', 'green'];
+
+  var colorizeWizardEyes = function (color) {
+    wizardEyesColor.style.fill = color;
+  };
+
+  window.colorizeElement(wizardEyesColor, wizardEyesColorArray, colorizeWizardEyes);
+
+  // Изменение цвета файрболла
+  var wizardFireballColor = document.querySelector('.setup-fireball-wrap');
+  var wizardFireballColorArray = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+
+  var colorizeWizardFireball = function (color) {
+    wizardFireballColor.style.background = color;
+  };
+
+  window.colorizeElement(wizardFireballColor, wizardFireballColorArray, colorizeWizardFireball);
+
+})();
+
+

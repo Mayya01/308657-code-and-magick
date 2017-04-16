@@ -92,26 +92,3 @@ window.allHandlers = (function () {
 })();
 
 
-window.fillColor = (function () {
-
-  // Обработчик событий изменений цвета мантии
-  var changeColorCoatHandler = function () {
-    document.querySelector('.wizard-coat').style.fill = randomArrItem(['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)']);
-  };
-// Обработчик событий изменений цвета глаз
-  var changeEyesColorHandler = function () {
-    document.querySelector('.wizard-eyes').style.fill = randomArrItem(['black', 'red', 'blue', 'yellow', 'green']);
-  };
-// Обработчик событий изменений цвета файерболла
-  var changeFireballColorHandler = function () {
-    document.querySelector('.setup-fireball-wrap').style.background = randomArrItem(['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848']);
-  };
-
-// Изменения цветов
-  document.querySelector('.wizard-coat').addEventListener('click', changeColorCoatHandler);
-
-  document.querySelector('.wizard-eyes').addEventListener('click', changeEyesColorHandler);
-
-  document.querySelector('.setup-fireball-wrap').addEventListener('click', changeFireballColorHandler);
-
-})();
