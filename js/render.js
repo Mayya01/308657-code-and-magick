@@ -37,6 +37,7 @@ window.renderWizardList = (function () {
 
     }
   }
+
   getArray();
 
   return WIZARD_ARRAY;

@@ -2,11 +2,8 @@
 
 (function () {
 
-  var WIZARD_ARRAY = window.renderWizardList;
-
-
   var userDialog = document.querySelector('.setup');
-/* userDialog.classList.remove('hidden');*/
+ // userDialog.classList.remove('hidden');
 
   var similarListElement = userDialog.querySelector('.setup-similar-list');
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
@@ -15,31 +12,46 @@
   var getWizard = function (wizard) {
     var clonedWizardElement = similarWizardTemplate.cloneNode(true);
 
-    clonedWizardElement.querySelector('.setup-similar-label').textContent = WIZARD_ARRAY[i].userName + ' ' + WIZARD_ARRAY[i].userSurname;
-
-    clonedWizardElement.querySelector('.wizard-coat').style.fill = WIZARD_ARRAY[i].usercoatColor;
-    clonedWizardElement.querySelector('.wizard-eyes').style.fill = WIZARD_ARRAY[i].usereyesColor;
+    clonedWizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
+    clonedWizardElement.querySelector('.wizard-coat').style.fill = wizard.colorCoat;
+    clonedWizardElement.querySelector('.wizard-eyes').style.fill = wizard.colorEyes;
 
     similarListElement.appendChild(clonedWizardElement);
 
     return clonedWizardElement;
   };
 
-  var fragment = document.createDocumentFragment();
-  for (var i = 0; i < WIZARD_ARRAY.length; i++) {
-    fragment.appendChild(getWizard(WIZARD_ARRAY[i]));
-  }
-  similarListElement.appendChild(fragment);
-  document.querySelector('.setup-similar').classList.remove('hidden');
+
+  var successHandler = function (wizards) {
+    var fragment = document.createDocumentFragment();
+    for (var i = 0; i < 5; i++) {
+      fragment.appendChild(getWizard(wizards[i]));
+    }similarListElement.appendChild(fragment);
+    document.querySelector('.setup-similar').classList.remove('hidden');
+  };
+
+  var errorHandler = function (errorMassage) {
+    var element = document.createElement('div');
+    element.style = 'z-index: 100; margin:0 auto; text-align: center; background-color:#DA641A; width:500px';
+    element.style.porisition = 'absolute';
+    element.style.left = '0';
+    element.style.right = '0';
+    element.style.fontSize = '25px';
+    element.style.fontWeight = 'bold';
+
+    element.textContent = errorMassage;
+    document.body.insertAdjacentElement('afterbegin', element);
+  };
+  window.load(successHandler, errorHandler);
+
+})();
 
 
 // Проверка имени пользователя
-  var checkUserName = document.querySelector('.setup-user-name');
-  checkUserName.required = true;
-  checkUserName.maxlength = 50;
-  checkUserName.minlength = 2;
-
-})();
+var checkUserName = document.querySelector('.setup-user-name');
+checkUserName.required = true;
+checkUserName.maxlength = 50;
+checkUserName.minlength = 2;
 
 (function () {
   var shopElement = document.querySelector('.setup-artifacts-shop');
